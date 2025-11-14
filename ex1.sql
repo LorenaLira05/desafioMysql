@@ -43,7 +43,8 @@ codm int primary key,
 codp int,
 data date,
 hora time,
-foreign key (codp) references Pacientes (codp)
+foreign key (codp) references Pacientes (codp),
+foreign key (codm) references Medicos(codm)
 );
 
 alter table Funcionarios add column (nroa int); 
