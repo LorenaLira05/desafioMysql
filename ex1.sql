@@ -42,7 +42,7 @@ CREATE TABLE Consultas(
 codm int primary key,
 codp int,
 data date,
-horario time,
+hora time,
 foreign key (codp) references Pacientes (codp)
 );
 
