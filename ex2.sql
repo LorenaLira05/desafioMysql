@@ -1,13 +1,14 @@
 -- ex 2 (atualizações)
-update Pacientes set cidade = 'ilhota' where nome = 'Paulo';
 
-update consultas set data = '2006-07-04' , hora ='12:00' where codm = 1 and codp = 4;
+UPDATE Pacientes SET cidade = 'ilhota' WHERE nome = 'Paulo';
 
-update pacientes set idade = 21 and doenca ='cancer' where nome ='Ana';
+UPDATE consultas SET data = '2006-07-04' , hora ='12:00' WHERE codm = 1 AND codp = 4;
 
-update consultas set data = '2006-06-19' , hora ='14:30' where codm = 3 and codp = 4;
+UPDATE pacientes SET idade = 21 AND doenca ='cancer' WHERE nome ='Ana';
 
-delete from consultas where hora = '19:30';
+UPDATE consultas SET data = '2006-06-19' , hora ='14:30' WHERE codm = 3 AND codp = 4;
+
+DELETE FROM consultas WHERE hora = '19:30';
 
 SELECT CONSTRAINT_NAME 
 FROM information_schema.TABLE_CONSTRAINTS 
@@ -22,7 +23,7 @@ ON DELETE CASCADE;
 
 DELETE FROM Pacientes WHERE idade < 10 or doenca = 'cancer';
 
-delete from medicos where cidade = 'Biguaçu' or cidade = 'Palhoca';
+DELETE FROM medicos WHERE cidade = 'Biguaçu' OR cidade = 'Palhoca';
 -- mesmo não havendo problemas para deletar o registro nesse caso, decidimos por alterar a tabela e adicionar
 -- um DELETE CASCADE na fk para manter a integridade referencial.
 
@@ -31,7 +32,7 @@ FROM information_schema.TABLE_CONSTRAINTS
 WHERE TABLE_NAME = 'Medicos' 
 AND CONSTRAINT_TYPE = 'FOREIGN KEY';
 
-Alter table Medicos drop foreign key medicos_ibfk_1;
+ALTER TABLE Medicos DROP FOREIGN KEY medicos_ibfk_1;
 
 ALTER TABLE Medicos 
 ADD FOREIGN KEY (nroa) references Ambulatorios (nroa)
