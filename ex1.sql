@@ -39,12 +39,13 @@ cargo varchar(20)
 );
 
 CREATE TABLE Consultas(
-codm int primary key,
-codp int,
-data date,
-hora time,
-foreign key (codp) references Pacientes (codp),
-foreign key (codm) references Medicos(codm)
+    codm int,
+    codp int,
+    data date,
+    hora time,
+    PRIMARY KEY (codm, codp, data),
+    foreign key (codp) references Pacientes (codp),
+    foreign key (codm) references Medicos(codm)
 );
 
 alter table Funcionarios add column (nroa int); 
