@@ -1,3 +1,5 @@
+-- ex 1
+
 CREATE DATABASE Clinica;
 
 USE Clinica;
@@ -43,20 +45,20 @@ CREATE TABLE Consultas(
     codp int,
     data date,
     hora time,
-    PRIMARY KEY (codm, codp, data),
+    PRIMARY KEY (codm, codp, data), 
     foreign key (codp) references Pacientes (codp),
     foreign key (codm) references Medicos(codm)
 );
 
-alter table Funcionarios add column (nroa int); 
+ALTER TABLE Funcionarios ADD COLUMN (nroa int); 
 
-create unique index idx_med_cpf on Medicos(CPF);
+CREATE UNIQUE INDEX idx_med_cpf ON Medicos(CPF);
 
-create index idx_pac_doenca on Pacientes(doenca);
+CREATE INDEX idx_pac_doenca ON Pacientes(doenca);
 
-drop index idx_pac_doenca on Pacientes;
+DROP INDEX idx_pac_doenca ON Pacientes;
 
-alter table Funcionarios drop column cargo, drop column nroa;
+ALTER TABLE Funcionarios DROP COLUMN cargo, DROP COLUMN nroa;
 
 -- adicionando registros
 
@@ -99,4 +101,3 @@ INSERT INTO Consultas (codm, codp, data, hora) VALUES
 (3, 4, '2006-06-19', '13:00'),
 (4, 4, '2006-06-20', '13:00'),
 (4, 4, '2006-06-22', '19:30');
-
