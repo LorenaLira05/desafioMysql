@@ -68,6 +68,36 @@ SELECT
 FROM
     Medicos;
   
--- 12) Buscar o código, o nome e o salário líquido dos funcionários. O salário líquido é obtido
--- pela diferença entre o salário cadastrado menos 20% deste mesmo salário  
+SELECT 
+    codf, nome, salario - (salario * 0.20) AS salario_liquido
+FROM
+    funcionarios;
+    
+SELECT 
+    nome
+FROM
+    funcionarios
+WHERE
+    nome LIKE '%a';
+
+
+SELECT 
+    nome, cpf
+FROM
+    funcionarios
+WHERE
+    cpf NOT LIKE '%00000%';
+
+    
+SELECT nome, especialidade
+FROM medicos
+WHERE nome LIKE '_O%O';
+
+SELECT 
+    codp, nome
+FROM
+    pacientes
+WHERE
+    idade > 25
+        AND doenca IN ('tendinite' , 'fratura', 'gripe', 'sarampo'); 
     
